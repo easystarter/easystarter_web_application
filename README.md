@@ -1,24 +1,29 @@
-Web Application for EasyStarter Crowdfunding Platform Project
+# Web Application for EasyStarter Crowdfunding Platform Project
 
-1. Install and configure VirtualEnv:
-    sudo apt-get install virtualenv 
++ Install and configure VirtualEnv:
+
+    sudo apt-get install virtualenv
     mkdir ~/virtualenvironment
     virtualenv --no-site-packages ~/virtualenvironment/my_new_app
     cd ~/virtualenvironment/my_new_app/bin
     source activate
 
-2. Clone git repository:
++ Clone git repository:
+
     mkdir EasyStarterProject && cd EasyStarterProject
     git clone https://github.com/easystarter/easystarter_web_application.git
     cd easystarter_web_application/ 
     pip install -r /path/to/requirements.txt
 
-3. PostgreSQL
-Installation:
+### PostgreSQL:
+
++ Installation:
+
     sudo apt-get update
     sudo apt-get install postgresql postgresql-contrib
 
-Create a Database and Database User:
++ Create a Database and Database User:
+
     sudo su - postgres
     psql
     CREATE DATABASE myproject;
