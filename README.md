@@ -30,12 +30,12 @@ sudo apt-get install postgresql postgresql-contrib
 ```
 sudo su - postgres
 psql
-CREATE DATABASE myproject;
-CREATE USER myprojectuser WITH PASSWORD 'password';
-ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
-ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
-ALTER ROLE myprojectuser SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+CREATE DATABASE easystarter_webapp_db;
+CREATE USER easystarter_webapp_user WITH PASSWORD '******';
+ALTER ROLE easystarter_webapp_user SET client_encoding TO 'utf8';
+ALTER ROLE easystarter_webapp_user SET default_transaction_isolation TO 'read committed';
+ALTER ROLE easystarter_webapp_user SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE easystarter_webapp_db TO easystarter_webapp_user;
 \q
 exit
 ```
