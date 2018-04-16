@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Concepts Storage</title>
+</head>
+<body>
+    {% if concepts_storage %}
+        <ul>
+            {% for concept in concepts_storage %}
+                <h2>{{ concept.title }}</h2>
+                <h4>{{ concept.created }}</h4>
+                <span>{{ concept.author }}</span>
+                <p>{{ concept.description }}</p>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
