@@ -1,0 +1,7 @@
+.concept_unit {
+    background-color: #c2e8f6;
+}
+body, html {
+    width: 100%;
+    display: grid;
+}

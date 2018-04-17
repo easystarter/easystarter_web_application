@@ -1,0 +1,11 @@
+<div class="concept_unit col-lg-6">
+    <br>
+    <h2>{{ concept.title }}</h2>
+    <h5>Created: {{ concept.created|date:"Y-M-d" }}</h5>
+    <h5>Published: {{ concept.pub_date|date:"Y-M-d" }}</h5>
+    <h4>Author: {{ concept.author }}</h4>
+    <br>
+    <p>
+        {{ concept.description|truncatechars:350 }}
+    </p>
+</div>
