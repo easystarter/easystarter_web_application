@@ -1,0 +1,30 @@
+{% extends 'concepts_storage_app/base.html' %}
+{% block content %}
+    <div class="container form-group">
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        <form action="{% url 'concepts_storage_app:add_concept' %}" method="POST">
+            {% csrf_token %}
+            <fieldset>
+            <legend>Create Project</legend>
+            <label for="title">Project Name:</label><br>
+                {{ form.title }}
+            <div class="form-group">
+              <label for="description">Description: </label><br>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="category">Category: </label><br>
+                {{ form.category }}
+            </div>
+
+            <div class="form-group">
+                <label for="published_date">Published date: </label><br>
+                {{ form.pub_date }}
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-success">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
+

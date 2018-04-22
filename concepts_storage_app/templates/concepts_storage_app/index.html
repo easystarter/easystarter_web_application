@@ -1,6 +1,12 @@
 {% extends "concepts_storage_app/base.html" %}
     {% block content %}
         <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <button onclick="window.location='{% url 'concepts_storage_app:add_concept' %}'"
+                        type="button" class="btn btn-success">Add Project</button>
+            </div>
+        </div>
             {% if concepts_storage %}
                 <div class="row">
                     {% for concept in concepts_storage %}

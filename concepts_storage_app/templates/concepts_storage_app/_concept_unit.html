@@ -1,5 +1,5 @@
 <div class="card border-dark mb-3" style="max-width: 20rem;">
-  <div class="card-header">Category: </div>
+  <div class="card-header">Category: {{ concept.category }}</div>
     <div class="card-body">
         <h4 class="card-title">{{ concept.title|truncatechars:50 }}</h4>
         <p class="card-text">Created: {{ concept.created|date:"Y-M-d" }}</p>

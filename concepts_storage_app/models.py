@@ -3,6 +3,8 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+
+from .choices import *
 from markdown import markdown
 
 
@@ -17,6 +19,8 @@ class Concept(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     pub_date = models.DateTimeField('date published')
 
+    category = models.CharField(max_length=30,
+                                choices=CATEGORY, default='Art')
 
     def was_published_recently(self):
         now = timezone.now()
@@ -35,11 +39,7 @@ class Concept(models.Model):
         return (self.pledge/self.goal)*100
 
     backers_counter = models.IntegerField(default=0)
-    day_to_go = models.CharField(max_length=100, choices=(
-        (SHORT_TERM, '30 days to go, platform fee is 5% of the project cost'),
-        (MIDDLE_TERM, '45 days to go, platform fee is 10% of the project cost'),
-        (LONG_TERM, '60 days to go, platform fee is 15% of the project cost')),
-        default=SHORT_TERM)
+    day_to_go = models.CharField(max_length=100, choices=DAY_TO_GO, default=30)
 
 #     markdown_description_field = models.TextField()
 #     html_description_field = models.TextField(editable=False)
