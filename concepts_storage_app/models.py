@@ -1,4 +1,5 @@
 import datetime
+import pytz
 
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -7,6 +8,7 @@ from django.utils import timezone
 
 from .choices import *
 
+utc = pytz.UTC
 
 
 class Concept(models.Model):
@@ -44,3 +46,9 @@ class Concept(models.Model):
 
     backers_counter = models.IntegerField(default=0)
     days_to_go = models.IntegerField(choices=DAYS_TO_GO, default=30)
+
+    def get_days_left(self):
+        days_left = str(
+            (self.pub_date + datetime.timedelta(days=self.days_to_go)) - utc.localize(datetime.datetime.now())
+        )[:7]
+        return days_left
