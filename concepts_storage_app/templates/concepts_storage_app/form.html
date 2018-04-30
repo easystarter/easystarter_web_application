@@ -10,20 +10,36 @@
 {% endblock %}
 {% block content %}
     <div class="container form-group">
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         <form action="{% url 'concepts_storage_app:add_concept' %}" method="POST">
             {% csrf_token %}
             <fieldset>
-                <legend>Create Project</legend>
-                <label for="{{ form.title.id_for_label }}">Project Name:</label><br>{{ form.title }}
+                <div class="row">
+                    <div class="col-md-10">
+                        <legend>CREATE PROJECT</legend>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-secondary" onclick="window.location='{% url 'concepts_storage_app:index' %}'">
+                            GO BACK
+                        </button>
+                    </div>
+                </div>
                 <div class="form-group">
+                    <div class="col-sm-4"><label for="{{ form.title.id_for_label }}">Project Name:</label><br>{{ form.title }}</div>
+                    <div class="col-sm-4">{{ form.title.errors }}</div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4"></div>
+                    {{ form.description.errors }}
                     <label for="{{ form.description.id_for_label }}">Description: </label><br>{{ form.description }}
                 </div>
                  <div class="form-group">
+                     {{ form.category.errors }}
                       <label for="{{ form.category.id_for_label }}">Category:</label><br>{{ form.category }}
                 </div>
                 <div class="form-group">
-                    <input id="datepicker" width="276" />
+                    {{ form.pub_date.errors }}
+                    <label for="{{ form.pub_date.id_for_label }}">Date of publication: </label><br>
+                    {{ form.pub_date }}
                     <script>
                         $('#datepicker').datepicker({
                             uiLibrary: 'bootstrap4'
@@ -31,11 +47,9 @@
                     </script>
                 </div>
                 <div class="form-group">
-                    <label for="{{ form.pub_date.id_for_label }}">Published date:</label><br>{{ form.pub_date }}
-                </div>
-                <div class="form-group">
-                  <label class="{{ form.goal.id_for_label }}">Goal:</label>
-                  <div class="form-group">
+                    {{ form.goal.errors }}
+                    <label class="{{ form.goal.id_for_label }}">Goal:</label>
+                    <div class="form-group">
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text">$</span>
@@ -47,17 +61,18 @@
                     </div>
                   </div>
                 </div>
-
-                {% for choice in form.days_to_go %}
-                <div class="form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" name="optionsRadios" id="optionsRadios" value="option" checked="" type="radio">
-                  {{ choice }}
-                </label>
-              </div>
-                {% endfor %}
-                <hr>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.days_to_go }}
+                        </div>
+                        <div class="col-md-4">
+                            <p class="text-danger">{{ form.days_to_go.errors }}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <button type="submit" class="btn btn-secondary">START PROJECT</button>
             </fieldset>
         </form>
     </div>

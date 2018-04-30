@@ -8,3 +8,6 @@ body, html {
 .form-group {
     width: 45%;
 }
+.base-header {
+    text-align: center;
+}
