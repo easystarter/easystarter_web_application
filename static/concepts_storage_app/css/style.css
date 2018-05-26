@@ -1,0 +1,13 @@
+.concept_unit {
+    background-color: #eeeeee;
+}
+body, html {
+    width: 100%;
+    display: grid;
+}
+.form-group {
+    width: 45%;
+}
+.base-header {
+    text-align: center;
+}

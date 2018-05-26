@@ -39,7 +39,7 @@ class Concept(models.Model):
     def __str__(self):
         return self.title
 
-    goal = models.IntegerField( default=0, validators=[MaxValueValidator(100000000), MinValueValidator(0)])
+    goal = models.IntegerField(default=0, validators=[MaxValueValidator(100000000), MinValueValidator(0)])
     pledge = models.IntegerField(default=0, validators=[MaxValueValidator(100000000), MinValueValidator(0)])
 
     def funded(self):
