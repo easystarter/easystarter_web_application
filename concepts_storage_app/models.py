@@ -7,6 +7,9 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 from .choices import *
 
 utc = pytz.UTC
@@ -20,7 +23,9 @@ class Concept(models.Model):
         self.slug = slugify(self.title)
         super(Concept, self).save(*args, **kwargs)
 
-    description = models.TextField(max_length=2000)
+    # description = models.TextField(max_length=2000)
+    # description = RichTextField(max_length=2000)
+    description = RichTextUploadingField(max_length=2000)
     status = models.CharField(max_length=20,
                               choices=STATUS, default='Draft')
     created = models.DateTimeField(auto_now_add=True)
