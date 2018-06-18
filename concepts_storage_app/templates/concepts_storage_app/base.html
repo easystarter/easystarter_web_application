@@ -3,55 +3,57 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/style.css' %}">
     <title>EasyStarter</title>
     {% block head %}
     {% endblock %}
 </head>
 <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="collapse navbar-collapse" id="navbarColor03">
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
+        <nav>
+          <div>
+              <ul>
+                  <li>
+                    <a href="#">ABOUT</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">SUPPORT</a>
+                  <li>
+                    <a href="#">SUPPORT</a>
                   </li>
-                  </ul>
-              <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" placeholder="Search" type="text">
-                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+              </ul>
+              <form>
+                  <input placeholder="Search" type="text">
+                  <button type="submit">Search</button>
               </form>
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">SIGN IN</a>
+              <ul>
+                  <li>
+                    <a href="#">SIGN IN</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">SIGN UP</a>
-                  </li>
-                  <li class="nav-item">
-
+                  <li>
+                    <a href="#">SIGN UP</a>
                   </li>
               </ul>
           </div>
         </nav>
-        <div class="jumbotron base-header">
-            <h1 class="display-3"> Welcome to EasyStarter!</h1>.
-            <p class="lead">We are the community who helps to implement your ideas in real life</p>
-            <p class="lead">We create the future together</p>
-            <hr class="my-4">
+        <div>
+            <h1> Welcome to EasyStarter!</h1>
+            <p>We are the community who helps to implement your ideas in real life</p>
+            <p>We create the future together</p>
+            <hr>
             <p>We help change the world</p>
-            <p class="lead">
-            <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Click here to learn more</a>
+            <p>
+            <a href="#" role="button">Click here to learn more</a>
             </p>
             <button onclick="window.location='{% url 'concepts_storage_app:add_concept' %}'"
-                    type="button" class="btn btn-secondary">START PROJECT
+                    type="button" >START PROJECT
             </button>
         </div>
         {% block header %}
         {% endblock %}
+        <div>
+            <h4>Tags:</h4>
+            {% for keyword in keywords %}
+                <a href="{% url 'concepts_storage_app:keywords' id=keyword.id %}">{{ keyword }} </a>
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
 </header>
 <body>
     {% block content %}

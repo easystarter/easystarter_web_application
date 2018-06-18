@@ -133,5 +133,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIG = {
+    'default': {
+        'toolbar': 'None',
+    },
+}
 # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDTOR_JQUERY_URL = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
 CKEDITOR_IMAGE_BACKEND = 'pillow'

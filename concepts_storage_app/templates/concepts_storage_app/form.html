@@ -9,34 +9,35 @@
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block content %}
-    <div class="container form-group">
+    <div>
         <form action="{% url 'concepts_storage_app:add_concept' %}" method="POST">
             {% csrf_token %}
+            {{ form.media }}
             <fieldset>
-                <div class="row">
-                    <div class="col-md-10">
+                <div>
+                    <div>
                         <legend>CREATE PROJECT</legend>
                     </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-secondary" onclick="window.location='{% url 'concepts_storage_app:index' %}'">
+                    <div>
+                        <button onclick="window.location='{% url 'concepts_storage_app:index' %}'">
                             GO BACK
                         </button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-4"><label for="{{ form.title.id_for_label }}">Project Name:</label><br>{{ form.title }}</div>
-                    <div class="col-sm-4">{{ form.title.errors }}</div>
+                <div>
+                    <div><label for="{{ form.title.id_for_label }}">Project Name:</label><br>{{ form.title }}</div>
+                    <div>{{ form.title.errors }}</div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-4"></div>
+                <div>
+                    <div></div>
                     {{ form.description.errors }}
                     <label for="{{ form.description.id_for_label }}">Description: </label><br>{{ form.description }}
                 </div>
-                 <div class="form-group">
+                 <div>
                      {{ form.category.errors }}
                       <label for="{{ form.category.id_for_label }}">Category:</label><br>{{ form.category }}
                 </div>
-                <div class="form-group">
+                <div>
                     {{ form.pub_date.errors }}
                     <label for="{{ form.pub_date.id_for_label }}">Date of publication: </label><br>
                     {{ form.pub_date }}
@@ -46,33 +47,33 @@
                         });
                     </script>
                 </div>
-                <div class="form-group">
+                <div>
                     {{ form.goal.errors }}
                     <label class="{{ form.goal.id_for_label }}">Goal:</label>
-                    <div class="form-group">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
+                    <div>
+                    <div>
+                      <div>
+                        <span>$</span>
                       </div>
                       {{ form.goal }}
-                      <div class="input-group-append">
-                        <span class="input-group-text">.00</span>
+                      <div>
+                        <span>.00</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
+                <div>
+                    <div>
+                        <div>
                             {{ form.days_to_go }}
                         </div>
-                        <div class="col-md-4">
-                            <p class="text-danger">{{ form.days_to_go.errors }}</p>
+                        <div>
+                            <p>{{ form.days_to_go.errors }}</p>
                         </div>
                     </div>
                 </div>
                 <hr/>
-                <button type="submit" class="btn btn-secondary">START PROJECT</button>
+                <button type="submit">START PROJECT</button>
             </fieldset>
         </form>
     </div>

@@ -1,0 +1,8 @@
+{% extends 'concepts_storage_app/base.html' %}
+{% block content %}
+    <p>Concepts - {{ keyw_s.name }}:</p>
+    {% for concept in concepts %}
+        <h6>Publish Date: {{ concept.pub_date }}</h6>
+        <h4><a href="{% url 'concepts_storage_app:details' slug=concept.slug %}">{{ concept.title }}</a></h4>
+    {% endfor %}
+{% endblock %}

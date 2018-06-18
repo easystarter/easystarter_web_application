@@ -7,12 +7,29 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
 
-from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from .choices import *
 
 utc = pytz.UTC
+
+
+class Keywords(models.Model):
+    class Meta:
+        db_table = 'keywords'
+    name = models.CharField(max_length=50, unique=True, verbose_name='Tags')
+
+    def __str__(self):
+        return self.name
+
+
+class Category(models.Model):
+    class Meta:
+        db_table = 'categories'
+    name = models.CharField(max_length=30, default='', unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Concept(models.Model):
@@ -23,16 +40,18 @@ class Concept(models.Model):
         self.slug = slugify(self.title)
         super(Concept, self).save(*args, **kwargs)
 
-    # description = models.TextField(max_length=2000)
-    # description = RichTextField(max_length=2000)
     description = RichTextUploadingField(max_length=2000)
     status = models.CharField(max_length=20,
                               choices=STATUS, default='Draft')
     created = models.DateTimeField(auto_now_add=True)
     pub_date = models.DateTimeField('Publication date')
 
-    category = models.CharField(max_length=30,
-                                choices=CATEGORY, default='')
+    category = models.ManyToManyField(Category, related_name='categories',
+                                      related_query_name='category',
+                                      verbose_name='Categories')
+    keywords = models.ManyToManyField(Keywords, related_name='keywords',
+                                      related_query_name='keyword',
+                                      verbose_name='Tags')
 
     def was_published_recently(self):
         now = timezone.now()
@@ -57,7 +76,5 @@ class Concept(models.Model):
     days_to_go = models.IntegerField(choices=DAYS_TO_GO, default=30)
 
     def get_days_left(self):
-        days_left = str(
-            (self.pub_date + datetime.timedelta(days=self.days_to_go)) - utc.localize(datetime.datetime.now())
-        )[:7]
-        return days_left
+        days = (datetime.date.today() - self.pub_date.date()).days - datetime.timedelta(days=self.days_to_go).days
+        return days if days > 0 else 0
