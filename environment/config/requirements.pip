@@ -1,0 +1,7 @@
+Django==2.0.5
+django-ckeditor==5.4.0
+django-js-asset==1.1.0
+gunicorn==19.8.0
+Pillow==5.1.0
+psycopg2-binary==2.7.4
+pytz==2018.4

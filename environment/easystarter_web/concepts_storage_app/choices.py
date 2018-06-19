@@ -9,4 +9,5 @@ STATUS = [('Draft', 'Not Published Yet'),
           ('Done', 'Concept achieved the goal with success'),
           ('Closed', 'Concept closed without success')
         ]
-
+CATEGORY = [('Art', 'Art'),
+            ('Fashion', 'Fashion')]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Concept, Keywords, Category
+from .models import Concept, Keywords
 
 
 @admin.register(Concept)
@@ -30,7 +30,3 @@ class ConceptAdmin(admin.ModelAdmin):
 class KeywordsAdmin(admin.ModelAdmin):
     fields = ['name']
 
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    fields = ['name']

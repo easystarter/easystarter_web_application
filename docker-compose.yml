@@ -1,0 +1,49 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.13
+        restart: always
+        container_name: ng01
+        ports:
+           - "8000:8000"
+        volumes:
+           - ./environment/easystarter_web/static:/etc/nginx/easystarter_web/static
+           - ./environment/easystarter_web/media:/etc/nginx/easystarter_web/media
+           - ./environment/config/nginx:/etc/nginx/conf.d
+        depends_on:
+           - web
+    web:
+       build:
+           context: ./environment
+           dockerfile: Dockerfile
+       restart: always
+       container_name: dg01
+       command:
+           bash -c
+           "sleep 5 &&
+           python3 /easystarter_web/manage.py makemigrations &&
+           python3 /easystarter_web/manage.py migrate &&
+           cd /easystarter_web &&
+           gunicorn easystarter_web.wsgi -b 0.0.0.0:8000"
+       depends_on:
+           - db
+       volumes:
+           - ./environment/easystarter_web:/easystarter_web
+       expose:
+         - "8000"
+    db:
+        image: postgres:9.5
+        environment:
+             - POSTGRES_PASSWORD=docker
+             - POSTGRES_USER=docker
+             - POSTGRES_DB=docker_db
+        restart: always
+        container_name: pg01
+        expose:
+          - "5432"
+        ports:
+          - "5432:5432"
+        volumes:
+          - ${PWD}/data/:/var/lib/postgresql/data/
+
+

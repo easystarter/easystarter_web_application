@@ -1,8 +1,7 @@
 from django import forms
 
 from .choices import *
-from .models import Concept, Category
-
+from .models import Concept
 from datetime import datetime
 from ckeditor.widgets import CKEditorWidget
 
@@ -23,9 +22,7 @@ class ConceptForm(forms.Form):
                                widget=forms.TextInput(attrs={'id': 'datepicker', 'width': '200',
                                                              'value': date_now}))
 
-    list_of_categories = [(category.name, category.name) for category in Category.objects.all()]
-    print(list_of_categories)
-    category = forms.ChoiceField(required=True, label='Category', choices=list_of_categories,
+    category = forms.ChoiceField(required=True, label='Category', choices=CATEGORY,
                                  widget=forms.Select(attrs={'id': 'category'}), initial='')
 
     goal = forms.IntegerField(required=True, max_value=100000000, min_value=0, label='Goal',

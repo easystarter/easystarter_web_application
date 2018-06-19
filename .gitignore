@@ -88,6 +88,5 @@ local_settings.py
 .env
 db.sqlite3
 
-### Pycharm
+# Pycharm 
 .idea/
-migrations/

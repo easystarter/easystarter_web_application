@@ -3,7 +3,6 @@ import pytz
 
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
 
@@ -23,15 +22,6 @@ class Keywords(models.Model):
         return self.name
 
 
-class Category(models.Model):
-    class Meta:
-        db_table = 'categories'
-    name = models.CharField(max_length=30, default='', unique=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Concept(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=20, blank=True, unique=True)
@@ -46,9 +36,7 @@ class Concept(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     pub_date = models.DateTimeField('Publication date')
 
-    category = models.ManyToManyField(Category, related_name='categories',
-                                      related_query_name='category',
-                                      verbose_name='Categories')
+    category = models.CharField(max_length=50, blank=True, choices=CATEGORY)
     keywords = models.ManyToManyField(Keywords, related_name='keywords',
                                       related_query_name='keyword',
                                       verbose_name='Tags')
