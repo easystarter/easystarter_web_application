@@ -1,10 +1,7 @@
 {% extends 'concepts_storage_app/base.html' %}
+{% block title %}Start Project{% endblock %}
 {% block head %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 {% endblock %}
@@ -16,7 +13,7 @@
             <fieldset>
                 <div>
                     <div>
-                        <legend>CREATE PROJECT</legend>
+                        <legend>Create Project</legend>
                     </div>
                     <div>
                         <button onclick="window.location='{% url 'concepts_storage_app:index' %}'">
@@ -73,7 +70,7 @@
                     </div>
                 </div>
                 <hr/>
-                <button type="submit">START PROJECT</button>
+                <button type="submit">Start Project</button>
             </fieldset>
         </form>
     </div>

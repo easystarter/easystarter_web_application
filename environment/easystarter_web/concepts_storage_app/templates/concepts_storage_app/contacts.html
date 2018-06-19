@@ -1,0 +1,58 @@
+{% extends 'concepts_storage_app/base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- main style --->
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/contact.css' %}">
+{% endblock %}
+{% block content %}
+    <section id="TemplateContact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <h3 class="Title">Contacts</h3>
+                <img class="secondImg" src="{% static 'concepts_storage_app/img/img-1.jpg' %}" alt="">
+                <p class="Text">If you have any questions - contact us</p>
+                <p class="Text">Manager will contact you in person during business hours</p>
+                <p class="Text">
+                    <img src="{% static 'concepts_storage_app/img/email.png' %}" alt="Email" title="Email">
+                    <span>info@easystarter.com.ua</span>
+                </p>
+                <p class="Text">
+                    <img src="{% static 'concepts_storage_app/img/telegram.png' %}" alt="Telegram" title="Telegram">
+                    <a href="https://telegram.me/<USERNAME>">Telegram</a>
+                    <!--
+                    Еще пару возможных вариантов перехода в телеграмм
+                        <a href="https://telegram.me/share/url?url=<URL>&text=<TEXT>">Telegram</a>
+                        <a title="Telegram" href="tg://resolve?domain=nikname">Telegram</a>
+                    -->
+                </p>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <h3 class="Title">Contact form</h3>
+                <form class="form-From-Contact">
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12 col-xs-12" for="Name">Your name</label>
+                        <input type="text" class="form-control col-md-8 col-sm-12 col-xs-12" id="Name" aria-describedby="nameHelp" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="Email1">Email *</label>
+                        <input type="email" class="form-control col-md-8 col-sm-12 col-xs-12" id="Email1" aria-describedby="emailHelp" placeholder="Enter">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="Phone">Phone *</label>
+                        <input type="tel" name="tel" class="form-control col-md-8 col-sm-12" id="Phone" size="10" aria-required="true" aria-invalid="false" placeholder="+00000000000">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="exampleFormControlTextarea1">Your message *</label>
+                        <textarea class="form-control col-md-8 col-sm-12" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group button"><button type="submit" class="btn btn-primary Send">Send</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock %}

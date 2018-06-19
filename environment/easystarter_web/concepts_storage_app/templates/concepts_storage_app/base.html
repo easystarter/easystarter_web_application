@@ -3,64 +3,189 @@
 <head>
     <meta charset="UTF-8">
     {% load static %}
-    <title>EasyStarter</title>
+    <title>{% block title %}Homepage{% endblock %}</title>
+    <!-- bootstrapcdn style-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- fontawesome style-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- bootstrapcdn & jquery script-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <!-- main style --->
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/homepage.css' %}">
     {% block head %}
     {% endblock %}
 </head>
-<header>
-        <nav>
-          <div>
-              <ul>
-                  <li>
-                    <a href="#">ABOUT</a>
-                  </li>
-                  <li>
-                    <a href="#">SUPPORT</a>
-                  </li>
-              </ul>
-              <form>
-                  <input placeholder="Search" type="text">
-                  <button type="submit">Search</button>
-              </form>
-              <ul>
-                  <li>
-                    <a href="#">SIGN IN</a>
-                  </li>
-                  <li>
-                    <a href="#">SIGN UP</a>
-                  </li>
-              </ul>
-          </div>
-        </nav>
-        <div>
-            <h1> Welcome to EasyStarter!</h1>
-            <p>We are the community who helps to implement your ideas in real life</p>
-            <p>We create the future together</p>
-            <hr>
-            <p>We help change the world</p>
-            <p>
-            <a href="#" role="button">Click here to learn more</a>
-            </p>
-            <button onclick="window.location='{% url 'concepts_storage_app:add_concept' %}'"
-                    type="button" >START PROJECT
-            </button>
-        </div>
-        {% block header %}
-        {% endblock %}
-        <div>
-            <h4>Tags:</h4>
-            {% for keyword in keywords %}
-                <a href="{% url 'concepts_storage_app:keywords' id=keyword.id %}">{{ keyword }} </a>
-            {% if not forloop.last %}, {% endif %}
-            {% endfor %}
-        </div>
-</header>
 <body>
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <button type="submit" class="btn btn-primary buttonPrm"><span>Explore</span></button>
+                <button onclick="window.location='{% url 'concepts_storage_app:add_concept' %}'"
+                    type="submit" class="btn btn-primary buttonPrm" ><span>Start project</span>
+                </button>
+            </div>
+            <div class="col-md-4 col-xs-12"><a href="{% url 'concepts_storage_app:index' %}"><img src="{% static 'concepts_storage_app/img/logo.png' %}" alt="Logo"></a></div>
+            <div class="col-md-4 col-xs-12">
+                <div class="input-group stylish-input-group">
+                    <span class="buttonPrm"><input type="text" class="form-control search-input"  placeholder="Search" ></span>
+                </div>
+                <button type="button" class="btn btn-primary buttonSingIn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span><i class="fas fa-power-off"></i>Sing in</span></button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h1> Welcome to EasyStarter!</h1>
+        <p>We are the community who helps to implement your ideas in real life</p>
+        <p>We create the future together</p>
+        <hr>
+        <p>We help change the world</p>
+        <p>
+        <a href="#" role="button">Click here to learn more</a>
+        </p>
+    </div>
+    <div>
+        <h4>Tags:</h4>
+        {% for keyword in keywords %}
+            <a href="{% url 'concepts_storage_app:keywords' id=keyword.id %}">{{ keyword }} </a>
+        {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </div>
+</header>
+<main>
     {% block content %}
     {% endblock %}
-</body>
-<footer>
-    {% block footer %}
-    {% endblock %}
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <h3 class="Title-footer">About us</h3>
+                <ul class="footer-list">
+                    <li><a href="#">What Is EasyStarter?</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="{% url 'concepts_storage_app:contacts' %}">Contacts</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <h3 class="Title-footer">Help center</h3>
+                <ul class="footer-list">
+                    <li><a href="#">How Does It Work?</a></li>
+                    <li><a href="#">About Crowdfunding</a></li>
+                    <li><a href="#">Questions And Answers</a></li>
+                    <li><a href="#">Our Rules</a></li>
+                </ul>
+                <p>EasyStarter.com.ua © 2018</p>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <h3 class="Title-footer">Help center</h3>
+                <div class="d-flex justify-content-between">
+                    <ul class="col-md-4 col-xs-12 footer-list">
+                        <li><a href="#">Movie</a></li>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Food</a></li>
+                        <li><a href="#">Theater</a></li>
+                        <li><a href="#">IT</a></li>
+                    </ul>
+                    <ul class="col-md-4 col-xs-12 footer-list">
+                        <li><a href="#">Music</a></li>
+                        <li><a href="#">Printing</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Ecology</a></li>
+                        <li><a href="#">Design</a></li>
+                    </ul>
+                    <ul class="col-md-4 col-xs-12 footer-list">
+                        <li><a href="#">Photography</a></li>
+                        <li><a href="#">Art</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Sport</a></li>
+                        <li><a href="#">Innovation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="social-block-footer">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <p>EasyStarter.com.ua © 2018</p>
+            </div>
+        </div>
+    </div>
 </footer>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-From-Contact">
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12 col-xs-12" for="Name">User name:</label>
+                        <input type="text" class="form-control col-md-8 col-sm-12 col-xs-12" id="Name" aria-describedby="nameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="Email1">E-Mail:</label>
+                        <input type="email" class="form-control col-md-8 col-sm-12 col-xs-12" id="Email1" aria-describedby="emailHelp" >
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="Pass">Password:</label>
+                        <input type="text" name="pass" class="form-control col-md-8 col-sm-12" id="Pass" >
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12" for="ResPass">Re-enter password:</label>
+                        <input type="text" name="respass" class="form-control col-md-8 col-sm-12" id="ResPass" >
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12"></label>
+                        <div class="col-md-8 col-sm-12 block-bottom">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="row">
+                                        By signing up, you agree to our terms of use and privacy policy
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="row textRight">
+                                        <button type="submit" class="btn btn-primary Send">Create account</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-12"></label>
+                        <div class="col-md-8 col-sm-12 block-bottom">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="row">
+                                        Log in using services:
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="row textRight">
+                                        <div class="form-group button"><button type="submit" class="btn btn-primary Send">Send</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>

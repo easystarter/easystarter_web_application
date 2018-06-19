@@ -1,4 +1,5 @@
 {% extends 'concepts_storage_app/base.html' %}
+{% block title %}{{ concept.title| truncatewords:3 }}{% endblock %}
 {% block header %}
 {% endblock %}
 {% block content %}

@@ -10,4 +10,13 @@ STATUS = [('Draft', 'Not Published Yet'),
           ('Closed', 'Concept closed without success')
         ]
 CATEGORY = [('Art', 'Art'),
-            ('Fashion', 'Fashion')]
+            ('Fashion', 'Fashion'),
+            ('Design', 'Design'),
+            ('Theatre', 'Theatre'),
+            ('Food', 'Food'),
+            ('Technology', 'Technology'),
+            ('Games', 'Games'),
+            ('Films & Videos', 'Films & Videos'),
+            ('Music', 'Music'),
+            ('Photography', 'Photography')
+            ]

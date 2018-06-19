@@ -6,7 +6,7 @@ from .models import Concept, Keywords
 class ConceptAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Main', {
-            'fields': ('title', 'description', 'slug')
+            'fields': ('title', 'description')
         }),
         ('Date', {
             'fields': ('pub_date',)

@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('concept/<slug:slug>', views.ConceptDetailView.as_view(), name='details'),
     path('keywords/<int:id>', views.get_concepts_base_on_keywords, name='keywords'),
-    path('add', views.add_concept, name='add_concept')
+    path('add', views.add_concept, name='add_concept'),
+    path('contacts', views.contacts, name='contacts')
 ]

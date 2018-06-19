@@ -1,0 +1,94 @@
+#TemplateContact{
+    padding: 100px 0;
+}
+.Title{
+    font-size: 36px;
+    color: rgb(73, 73, 189);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.667;
+}
+.secondImg{
+    margin: 50px 0;
+}
+.Text{
+    font-size: 18px;
+    color: rgb(56, 56, 56);
+    line-height: 1;
+    margin-bottom: 30px;
+}
+.Text a{
+    color: rgb(56, 56, 56);
+}
+.Text img{
+    margin-right: 20px;
+}
+/********start form*********/
+.form-From-Contact{
+    margin: 90px 0 0 0;
+}
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.form-group label{
+    margin: 0;
+    font-size: 18px;
+    color: rgb(56, 56, 56);
+    line-height: 1;
+}
+.form-group input, .form-group textarea{
+    border: 1px solid  #c2c2c2;
+    border-radius: 10px;
+}
+.form-group input:focus, .form-group textarea:focus{
+    border: 1px solid #4949bd;
+    box-shadow: none;
+}
+.Send {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.333;
+    border:none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 40px auto;
+    background: rgba(38,66,209,1);
+    background: -moz-linear-gradient(top, rgba(38,66,209,1) 0%, rgba(81,221,212,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(38,66,209,1)), color-stop(100%, rgba(81,221,212,1)));
+    background: -webkit-linear-gradient(top, rgba(38,66,209,1) 0%, rgba(81,221,212,1) 100%);
+    background: -o-linear-gradient(top, rgba(38,66,209,1) 0%, rgba(81,221,212,1) 100%);
+    background: -ms-linear-gradient(top, rgba(38,66,209,1) 0%, rgba(81,221,212,1) 100%);
+    background: linear-gradient(to bottom, rgba(38,66,209,1) 0%, rgba(81,221,212,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2642d1', endColorstr='#51ddd4', GradientType=0 );
+}
+/*************end form***************************/
+
+
+/***********tablet and mobile version********************/
+@media screen and (max-width: 768px) {
+    #TemplateContact {
+        padding: 50px 0;
+    }
+    .secondImg{
+        width: 100%;
+    }
+    .form-group label {
+        margin: 0 0 15px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .form-group{
+        display: block;
+    }
+    .form-group *{
+        max-width: 100%;
+    }
+    .Title:nth-child(1){
+        margin-top: 50px;
+    }
+}
+
+

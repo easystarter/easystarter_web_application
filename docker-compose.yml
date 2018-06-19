@@ -5,7 +5,7 @@ services:
         restart: always
         container_name: ng01
         ports:
-           - "8000:8000"
+           - "80:8000"
         volumes:
            - ./environment/easystarter_web/static:/etc/nginx/easystarter_web/static
            - ./environment/easystarter_web/media:/etc/nginx/easystarter_web/media

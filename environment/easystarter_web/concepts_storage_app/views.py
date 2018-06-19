@@ -14,6 +14,10 @@ def index(request):
                                                                   'keywords': keywords})
 
 
+def contacts(request):
+    return render_to_response('concepts_storage_app/contacts.html')
+
+
 class ConceptDetailView(generic.DetailView):
     model = Concept
     template_name = 'concepts_storage_app/details.html'
