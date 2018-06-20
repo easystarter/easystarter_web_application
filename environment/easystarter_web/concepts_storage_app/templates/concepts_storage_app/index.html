@@ -17,22 +17,22 @@
             </div>
         </div>
         <section id="Template01">
-        <div class="container">
-            <h1 class="MainTitle"><span>Projects</span></h1>
-            <div class="row">
-            {% if concepts_storage %}
-                    {% for concept in concepts_storage %}
-                        {% include 'concepts_storage_app/_concept_unit.html' %}
-                    {% endfor %}
-            {% endif %}
-            <div class="col-md-4 col-xs-12">
-                <div class="background-block addBlock">
-                    <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
-                    <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
-                    <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+            <div class="container">
+                <h1 class="MainTitle"><span>Projects</span></h1>
+                <div class="row">
+                {% if concepts_storage %}
+                        {% for concept in concepts_storage %}
+                            {% include 'concepts_storage_app/_concept_unit.html' %}
+                        {% endfor %}
+                    {% endif %}
+                <div class="col-md-4 col-xs-12">
+                    <div class="background-block addBlock">
+                        <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
+                        <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
+                        <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+                    </div>
                 </div>
-            </div>
-            </div>
+                </div>
             </div>
         </section>
 {% endblock %}
