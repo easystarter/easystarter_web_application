@@ -7,5 +7,7 @@ urlpatterns = [
     path('concept/<slug:slug>', views.ConceptDetailView.as_view(), name='details'),
     path('keywords/<int:id>', views.get_concepts_base_on_keywords, name='keywords'),
     path('add', views.add_concept, name='add_concept'),
-    path('contacts', views.contacts, name='contacts')
+    path('contacts', views.contacts, name='contacts'),
+    path('about', views.about, name='about'),
+    path('team', views.team, name='team'),
 ]

@@ -1,14 +1,38 @@
 {% extends "concepts_storage_app/base.html" %}
-    {% block header %}
-    {% endblock %}
-    {% block content %}
-        <div>
+{% load static %}
+{% block header %}
+{% endblock %}
+{% block content %}
+        <div class="banner">
+            <img src="{% static 'concepts_storage_app/img/banner1.png' %}" alt="">
+            <div class="fon-banner"></div>
+            <div class="container">
+                <div class="Textwrapper">
+                    <h1 class="Text01">Welcome to EasyStarter!</h1>
+                    <p class="Text01">We are the community who helps to implement your ideas in real lif</p>
+                    <p  class="Text01">We create the future together</p>
+                    <p class="Text01">We help change the world</p>
+                    <p class="Text01">Click here to learn more</p>
+                </div>
+            </div>
+        </div>
+        <section id="Template01">
+        <div class="container">
+            <h1 class="MainTitle"><span>Projects</span></h1>
+            <div class="row">
             {% if concepts_storage %}
-                <div >
                     {% for concept in concepts_storage %}
                         {% include 'concepts_storage_app/_concept_unit.html' %}
                     {% endfor %}
-                </div>
             {% endif %}
-        </div>
-    {% endblock %}
+            <div class="col-md-4 col-xs-12">
+                <div class="background-block addBlock">
+                    <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
+                    <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
+                    <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+{% endblock %}

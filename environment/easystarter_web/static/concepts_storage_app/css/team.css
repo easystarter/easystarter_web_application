@@ -1,0 +1,33 @@
+.team{
+    padding: 100px 0;
+}
+.team h1{
+    width: 100%;
+}
+.team-img{
+    width: 100%;
+    border-radius: 50%;
+    padding: 1px;
+    background: rgba(75,85,190,1);
+    background: -moz-linear-gradient(top, rgba(75,85,190,1) 0%, rgba(75,85,190,1) 0%, rgba(78,212,212,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(75,85,190,1)), color-stop(0%, rgba(75,85,190,1)), color-stop(100%, rgba(78,212,212,1)));
+    background: -webkit-linear-gradient(top, rgba(75,85,190,1) 0%, rgba(75,85,190,1) 0%, rgba(78,212,212,1) 100%);
+    background: -o-linear-gradient(top, rgba(75,85,190,1) 0%, rgba(75,85,190,1) 0%, rgba(78,212,212,1) 100%);
+    background: -ms-linear-gradient(top, rgba(75,85,190,1) 0%, rgba(75,85,190,1) 0%, rgba(78,212,212,1) 100%);
+    background: linear-gradient(to bottom, rgba(75,85,190,1) 0%, rgba(75,85,190,1) 0%, rgba(78,212,212,1) 100%);
+}
+.team-img-wrapper{
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+}
+.team-img-wrapper img{
+    border-radius: 50%;
+    width: 100%;
+}
+.teamBlock h3{
+    margin-top: 50px;
+}
+.teamBlock .position {
+    margin-bottom: 35px;
+}

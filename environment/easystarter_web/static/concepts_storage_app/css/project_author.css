@@ -1,0 +1,80 @@
+.project-author{
+    padding: 100px 0;
+}
+.project-author h1{
+    font-size: 36px;
+    color: #4949BD;
+    margin: 0 0 15px;
+}
+.project-author .buttonPrm {
+    color: #ffff;
+    padding: 5px 30px;
+    border: 1px solid #97f6d1;
+}
+.project-author .buttonPrm:hover{
+    text-decoration: none;
+}
+.margin-bottom{
+    margin-bottom: 75px;
+}
+.wrapper-author-01, .wrapper-author-02{
+    padding-bottom: 50px;
+    border-bottom: 1px solid #4949BD;
+}
+.wrapper-author-02{
+    padding-top: 50px;
+}
+.wrapper-author-03{
+    padding: 50px 0;
+}
+.row-wrapper{
+    width: 100%;
+}
+.row-wrapper .buttonPrm{
+    padding: 1px;
+}
+.row-wrapper .buttonPrm span{
+    color: #4949bd;
+}
+.row-wrapper .buttonPrm:hover span{
+    color: #fff;
+    transition: 0.3s;
+    background: transparent;
+}
+.wrapper-author-02 .progress{
+    margin: 10px 0 0;
+}
+.wrapper-author-03 img{
+    width: 100%;
+}
+.wrapper-author-03 p{
+    margin: 30px 0;
+}
+/*******sidebar*********************************************/
+.width-100{
+    width: 100%;
+}
+.sidebar{
+    margin-top: 105px;
+}
+.sidebar h3{
+    font-size: 30px;
+    color: #4949BD;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 1px solid #4949BD;
+    padding-bottom: 15px;
+}
+.block-wrapper h4{
+    font-size: 26px;
+    color: #383838;
+    line-height: 0.8;
+    margin: 50px 0 40px;
+}
+.block-wrapper p{
+    font-size: 16px;
+    color: #383838;
+    line-height: 1.2;
+    padding: 0 0 40px;
+    border-bottom: 1px solid #4949BD;
+}

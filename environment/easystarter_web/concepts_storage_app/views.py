@@ -14,6 +14,12 @@ def index(request):
                                                                   'keywords': keywords})
 
 
+def about(request):
+    return render_to_response('concepts_storage_app/about.html')
+
+def team(request):
+    return render_to_response('concepts_storage_app/team.html')
+
 def contacts(request):
     return render_to_response('concepts_storage_app/contacts.html')
 

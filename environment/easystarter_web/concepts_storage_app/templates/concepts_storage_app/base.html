@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     {% load static %}
     <title>{% block title %}Homepage{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'concepts_storage_app/img/favicon.ico' %}"/>
     <!-- bootstrapcdn style-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
@@ -16,7 +17,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     <!-- main style --->
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/contact.css' %}">
     <link rel="stylesheet" href="{% static 'concepts_storage_app/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/manage_project.css' %}">
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/new_project.css' %}">
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/project_author.css' %}">
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/team.css' %}">
+    <link rel="stylesheet" href="{% static 'concepts_storage_app/css/about.css' %}">
+
+    <!-- script main -->
+    <script src="{% static 'concepts_storage_app/js/script.js' %}"></script>
     {% block head %}
     {% endblock %}
 </head>
@@ -39,23 +49,13 @@
             </div>
         </div>
     </div>
-    <div>
-        <h1> Welcome to EasyStarter!</h1>
-        <p>We are the community who helps to implement your ideas in real life</p>
-        <p>We create the future together</p>
-        <hr>
-        <p>We help change the world</p>
-        <p>
-        <a href="#" role="button">Click here to learn more</a>
-        </p>
-    </div>
-    <div>
-        <h4>Tags:</h4>
-        {% for keyword in keywords %}
-            <a href="{% url 'concepts_storage_app:keywords' id=keyword.id %}">{{ keyword }} </a>
-        {% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </div>
+    <!--<div>-->
+        <!--<h4>Tags:</h4>-->
+        <!--{% for keyword in keywords %}-->
+            <!--<a href="{% url 'concepts_storage_app:keywords' id=keyword.id %}">{{ keyword }} </a>-->
+        <!--{% if not forloop.last %}, {% endif %}-->
+        <!--{% endfor %}-->
+    <!--</div>-->
 </header>
 <main>
     {% block content %}
@@ -67,8 +67,8 @@
             <div class="col-md-4 col-xs-12">
                 <h3 class="Title-footer">About us</h3>
                 <ul class="footer-list">
-                    <li><a href="#">What Is EasyStarter?</a></li>
-                    <li><a href="#">Team</a></li>
+                    <li><a href="{% url 'concepts_storage_app:about' %}">What Is EasyStarter?</a></li>
+                    <li><a href="{% url 'concepts_storage_app:team' %}">Team</a></li>
                     <li><a href="{% url 'concepts_storage_app:contacts' %}">Contacts</a></li>
                 </ul>
             </div>

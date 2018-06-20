@@ -1,0 +1,11 @@
+.Title01{
+    font-size: 30px;
+    color: rgb(56, 56, 56);
+    text-transform: uppercase;
+    line-height: 0.8;
+    margin: 60px 0;
+}
+form.new-project .buttonPrm{
+    color: #ffff;
+    padding: 5px 30px;
+}

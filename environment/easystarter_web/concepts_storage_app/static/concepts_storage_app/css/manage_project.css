@@ -1,0 +1,54 @@
+.manager-project{
+    padding: 100px 0;
+}
+.wrapper-image img{
+    border-radius: 50%;
+}
+.position span{
+    border-radius: 7px;
+    background-color: rgb(38, 66, 209);
+    color: #fff;
+    padding: 7px 15px;
+}
+/*************Tabs manager***********************/
+.TabsManager{
+    border: none;
+    margin: 0 auto 100px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.TabsManager li a{
+    font-size: 26px;
+    color: rgb(183, 183, 183);
+    border: none !important;
+    position: relative;
+    padding: 0;
+    line-height: 1.5;
+}
+.TabsManager .nav-link.active{
+    border: none;
+    color: #4949bd;
+    font-weight: bold;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover{
+    border: none;
+}
+
+.TabsManager li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 1px solid #4949bd;
+    transition: 0.3s;
+}
+.TabsManager li a:hover{
+    text-decoration: none;
+    color:#4949bd;
+    transition: 0.3s;
+}
+.TabsManager li a:hover:after, .TabsManager .nav-link.active:after {
+    width: 100%;
+}
