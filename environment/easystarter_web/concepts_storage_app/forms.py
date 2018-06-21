@@ -12,7 +12,7 @@ class ConceptForm(forms.Form):
         model = Concept
         fields = ['title', 'description']
 
-    title = forms.CharField(required=True, max_length=50, label='Title',
+    title = forms.CharField(required=True, label='Title',
                             widget=forms.TextInput(attrs={'id': 'title'}))
 
     description = forms.CharField(widget=CKEditorWidget())

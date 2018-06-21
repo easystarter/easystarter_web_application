@@ -23,15 +23,15 @@ class Keywords(models.Model):
 
 
 class Concept(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=20, blank=True, unique=True)
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=50, blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Concept, self).save(*args, **kwargs)
 
-    description = RichTextUploadingField(max_length=2000)
-    status = models.CharField(max_length=20,
+    description = RichTextUploadingField(max_length=15000)
+    status = models.CharField(max_length=50,
                               choices=STATUS, default='Draft')
     created = models.DateTimeField(auto_now_add=True)
     pub_date = models.DateTimeField('Publication date')
