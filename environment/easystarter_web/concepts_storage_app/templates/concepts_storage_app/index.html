@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="Textwrapper">
                     <h1 class="Text01">Welcome to EasyStarter!</h1>
-                    <p class="Text01">We are the community who helps to implement your ideas in real lif</p>
+                    <p class="Text01">We are the community who helps to implement your ideas in real life</p>
                     <p  class="Text01">We create the future together</p>
                     <p class="Text01">We help change the world</p>
                     <p class="Text01">Click here to learn more</p>
@@ -22,16 +22,55 @@
                 <div class="row">
                     {% if concepts_storage %}
                         {% for concept in concepts_storage %}
-                            {% include 'concepts_storage_app/_concept_unit.html' %}
+                        <div class="col-md-4 col-xs-12">
+                                <div class="border-block">
+                                    <div class="background-block">
+                                        <h3 class="title-project">{{ concept.title | truncatechars:50 }}</h3>
+                                        <p class="author-line">
+                                            <span>Author: MISTER X</span>
+                                            <span>Status: {{ concept.status }}</span>
+                                        </p>
+                                        <p class="category">
+                                            <span>Category: {{ concept.category }}</span>
+                                        </p>
+                                        <p>
+                                            <span>Created: {{ concept.created|date:"Y-M-d" }}</span>
+                                            <span>Published: {{ concept.pub_date|date:"Y-M-d" }}</span>
+                                        </p>
+                                        <p>
+                                            <img src="{% static 'concepts_storage_app/img/img.png' %}" class="imageMain" alt="Img">
+                                        </p>
+                                        <p class="textProject">{% autoescape off %}{{ concept.description|truncatechars:300 }}{% endautoescape %}</p>
+                                        <p class="visitors">
+                                            <img src="{% static 'concepts_storage_app/img/people.png' %}" alt="">
+                                            <span>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</span>
+                                        </p>
+                                        <p class="times">
+                                            <img src="{% static 'concepts_storage_app/img/time.png' %}" alt="">
+                                            <span>{{ concept.get_days_left }} days to go</span>
+                                        </p>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width:{{ concept.funded }}%">
+                                                <span class="title">{{ concept.pledge }}$ / {{ concept.goal }}$</span>
+                                            </div>
+                                        </div>
+                                        <p style="text-align: center;">
+                                            <button class="buttonPrm" onclick="window.location='{% url 'concepts_storage_app:details' slug=concept.slug %}'">
+                                                <span>View Detail</span>
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         {% endfor %}
                     {% endif %}
-                <div class="col-md-4 col-xs-12">
-                    <div class="background-block addBlock">
-                        <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
-                        <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
-                        <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="background-block addBlock">
+                            <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
+                            <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
+                            <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </section>
