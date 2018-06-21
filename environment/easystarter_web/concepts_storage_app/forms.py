@@ -33,3 +33,41 @@ class ConceptForm(forms.Form):
     days_to_go = forms.ChoiceField(required=True, choices=DAYS_TO_GO, label='Days to go',
                                    widget=forms.RadioSelect(attrs={'id': 'choice',
                                                                    'class': 'list-unstyled'}))
+
+
+class MessageForm(forms.Form):
+    name = forms.CharField(required=True, max_length=50, label='Your name',
+                           widget=forms.TextInput(attrs={
+                                                    'class': 'form-control col-md-8 col-sm-12 col-xs-12',
+                                                    'id': 'Name',
+                                                    'aria-describedby': 'nameHelp',
+                                                    'placeholder': '',
+                                                    'type': 'text'
+                                                    }))
+
+    email = forms.EmailField(required=True, max_length=50, label='Email',
+                             widget=forms.EmailInput(attrs={
+                               'class': 'form-control col-md-8 col-sm-12 col-xs-12',
+                               'id': 'Email1',
+                               'aria-describedby': 'emailHelp',
+                               'placeholder': 'Enter',
+                               'type': 'email'
+                           }))
+
+    phone = forms.IntegerField(required=True, label='Phone number',
+                           widget=forms.TextInput(attrs={
+                               'class': 'form-control col-md-8 col-sm-12',
+                               'id': 'Phone',
+                               'aria-invalid': 'false',
+                               'placeholder': '+00000000000',
+                               'type': 'tel',
+                               'size':  '10',
+                               'name': 'tel'
+                           }))
+
+    message = forms.CharField(required=True, max_length=1000,  label='Message',
+                               widget=forms.Textarea(attrs={
+                                   'class': 'form-control col-md-8 col-sm-12',
+                                   'id': 'exampleFormControlTextarea1',
+                                   'rows': '3'
+                               }))

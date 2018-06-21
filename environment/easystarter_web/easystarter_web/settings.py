@@ -129,3 +129,10 @@ CKEDITOR_CONFIG = {
 # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 CKEDTOR_JQUERY_URL = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'easystartercomua@gmail.com'
+EMAIL_HOST_PASSWORD = 'easytlkJ8l_m%S-Q1&'

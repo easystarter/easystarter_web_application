@@ -1,3 +1,22 @@
 .about-us{
     padding: 100px 0;
 }
+#myTabContent div p{
+    font-size: 22px;
+    text-align: justify;
+    line-height: 1.8;
+}
+#myTab li{
+    margin-bottom: 35px;
+}
+@media screen and (max-width: 736px) {
+    #myTabContent{
+        padding: 0 15px;
+    }
+    .banner{
+        height: 350px;
+    }
+    .banner img{
+        height: 100%;
+    }
+}

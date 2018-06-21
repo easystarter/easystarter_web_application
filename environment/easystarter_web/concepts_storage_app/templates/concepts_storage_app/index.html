@@ -10,9 +10,8 @@
                 <div class="Textwrapper">
                     <h1 class="Text01">Welcome to EasyStarter!</h1>
                     <p class="Text01">We are the community who helps to implement your ideas in real life</p>
-                    <p  class="Text01">We create the future together</p>
-                    <p class="Text01">We help change the world</p>
-                    <p class="Text01">Click here to learn more</p>
+                    <p class="Text01">We create the future together</p>
+                    <p class="Text02"><a href="{% url 'concepts_storage_app:about' %}">Click here to learn more</a></p>
                 </div>
             </div>
         </div>
@@ -40,7 +39,7 @@
                                             <p>
                                                 <img src="{% static 'concepts_storage_app/img/img.png' %}" class="imageMain" alt="Img">
                                             </p>
-                                            <p class="textProject">{% autoescape off %}{{ concept.description|truncatechars:300 }}{% endautoescape %}</p>
+                                            <div class="textProject">{% autoescape off %}{{ concept.description|truncatechars:300 }}{% endautoescape %}</div>
                                             <p class="visitors">
                                                 <img src="{% static 'concepts_storage_app/img/people.png' %}" alt="">
                                                 <span>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</span>
@@ -65,11 +64,11 @@
                                 {% endfor %}
                             {% endif %}
                     </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-12 col-xs-12">
                     <div class="background-block addBlock">
-                        <img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt="">
-                        <img src="{% static 'concepts_storage_app/img/title01.png' %}" alt="">
-                        <a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a>
+                        <p><img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt=""></p>
+                        <p><img src="{% static 'concepts_storage_app/img/title01.png' %}" alt=""></p>
+                        <p><a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a></p>
                     </div>
                 </div>
             </div>

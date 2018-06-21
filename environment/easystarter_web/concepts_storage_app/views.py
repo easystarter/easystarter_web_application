@@ -1,10 +1,11 @@
 from datetime import datetime
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, render
+from django.core.mail import send_mail
 from django.views import generic
 
 from .models import Concept, Keywords
-from .forms import ConceptForm
+from .forms import ConceptForm, MessageForm
 
 
 def index(request):
@@ -17,11 +18,24 @@ def index(request):
 def about(request):
     return render_to_response('concepts_storage_app/about.html')
 
+
 def team(request):
     return render_to_response('concepts_storage_app/team.html')
 
+
 def contacts(request):
-    return render_to_response('concepts_storage_app/contacts.html')
+    form = MessageForm
+    return render_to_response('concepts_storage_app/contacts.html', {'form': form})
+
+
+def send_message(request, form):
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            message = form.cleaned_data['message']
 
 
 class ConceptDetailView(generic.DetailView):
@@ -41,7 +55,6 @@ def add_concept(request):
         if form.is_valid():
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
-
             pub_date = datetime.strptime(form.cleaned_data['pub_date'], '%m/%d/%Y')
             goal = form.cleaned_data['goal']
             days_to_go = form.cleaned_data['days_to_go']

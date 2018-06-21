@@ -257,13 +257,13 @@ body{
     width: 100%;
     height: 100%;
     top: 0;
-    background: rgba(0,0,0,0.62);
+   /* background: rgba(0,0,0,0.62);
     background: -moz-linear-gradient(left, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.62)), color-stop(52%, rgba(255,255,255,0.3)), color-stop(100%, rgba(255,255,255,0)));
     background: -webkit-linear-gradient(left, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
     background: -o-linear-gradient(left, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
     background: -ms-linear-gradient(left, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
-    background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.62) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);*/
 }
 .banner .container{
     height: 100%;
@@ -274,6 +274,9 @@ body{
 .Textwrapper{
     position: relative;
     z-index: 9;
+    background: rgba(0,0,0,0.5);
+    padding: 25px;
+    border-radius: 20px;
 }
 .Textwrapper p{
     width: 100%;
@@ -284,6 +287,33 @@ body{
     line-height: 1.5;
     transition: 0.3s;
     position: relative;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.Text02{
+    text-align: center;
+}
+.Text02 a{
+    font-size:26px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+    color: #fff;
+}
+.Text02 a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-bottom: 1px solid #fff;
+    transition: 0.3s;
+}
+.Text02 a:hover{
+    text-decoration: none;
+}
+.Text02 a:hover:after {
+    width: 100%;
 }
 /*.Text01:after {
     content: '';
@@ -403,9 +433,9 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.addBlock img{
+/*.addBlock img{
     width: 100%;
-}
+}*/
 .addBlock .buttonPrm{
     color: #fff;
     display: flex;
@@ -418,7 +448,10 @@ body{
 .addBlock .buttonPrm:hover{
     text-decoration: none;
 }
-
+.addBlock p{
+    width: 100%;
+    text-align: center;
+}
 /**************************21.06***********************************/
 .progress-bar {
     width: 0;
@@ -466,4 +499,21 @@ body{
 }
 #Template01 .container .row > div{
     margin-bottom: 30px;
+}
+.addBlock{
+    padding: 0;
+}
+@media screen and (max-width: 736px) {
+    .header .container .row > div{
+        text-align: center;
+        margin: 15px 0;
+    }
+    .header .container .row > div button{
+        margin: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .addBlock p img{
+        width: 100%;
+    }
 }
