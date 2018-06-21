@@ -1,38 +1,41 @@
 {% load static %}
 <div class="col-md-4 col-xs-12">
-    <div class="border-block">
-        <div class="background-block">
-            <h3 class="title-project">{{ concept.title | truncatechars:50 }}</h3>
-            <p class="author-line">
-                <span>Author: MISTER X</span>
-                <span>Status: {{ concept.status }}</span>
-            </p>
-            <p class="category">
-                <span>Category: {{ concept.category }}</span>
-            </p>
-            <p>
-                <span>Created: {{ concept.created|date:"Y-M-d" }}</span>
-                <span>Published: {{ concept.pub_date|date:"Y-M-d" }}</span>
-            </p>
-            <p>
-                <img src="{% static 'concepts_storage_app/img/img.png' %}" class="imageMain" alt="Img">
-            </p>
-            <p class="textProject">{% autoescape off %}{{ concept.description|truncatechars:300 }}{% endautoescape %}</p>
-            <p class="visitors">
-                <img src="{% static 'concepts_storage_app/img/people.png' %}" alt="">
-                <span>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</span>
-            </p>
-            <p class="times">
-                <img src="{% static 'concepts_storage_app/img/time.png' %}" alt="">
-                <span>{{ concept.get_days_left }} days to go</span>
-            </p>
-            <div class="progress">
-                <div class="dynamic progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{ concept.funded }}" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                <span class="current-progress"> {{ concept.pledge }}$ / {{ concept.goal }}$</span>
-                <span>{{ concept.funded }}</span>
+<div class="border-block">
+    <div class="background-block">
+        <h3 class="title-project">{{ concept.title | truncatechars:50 }}</h3>
+        <p class="author-line">
+            <span>Author: MISTER X</span>
+            <span>Status: {{ concept.status }}</span>
+        </p>
+        <p class="category">
+            <span>Category: {{ concept.category }}</span>
+        </p>
+        <p>
+            <span>Created: {{ concept.created|date:"Y-M-d" }}</span>
+            <span>Published: {{ concept.pub_date|date:"Y-M-d" }}</span>
+        </p>
+        <p>
+            <img src="{% static 'concepts_storage_app/img/img.png' %}" class="imageMain" alt="Img">
+        </p>
+        <p class="textProject">{% autoescape off %}{{ concept.description|truncatechars:300 }}{% endautoescape %}</p>
+        <p class="visitors">
+            <img src="{% static 'concepts_storage_app/img/people.png' %}" alt="">
+            <span>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</span>
+        </p>
+        <p class="times">
+            <img src="{% static 'concepts_storage_app/img/time.png' %}" alt="">
+            <span>{{ concept.get_days_left }} days to go</span>
+        </p>
+         <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width:{{ concept.funded }}%">
+                <span class="title">{{ concept.pledge }}$ / {{ concept.goal }}$</span>
             </div>
-            </div>
-            <button onclick="window.location='{% url 'concepts_storage_app:details' slug=concept.slug %}'">View Detail</button>
+         </div>
+            <p style="text-align: center;">
+                <button class="buttonPrm" onclick="window.location='{% url 'concepts_storage_app:details' slug=concept.slug %}'">
+                    <span>View Detail</span>
+                </button>
+            </p>
         </div>
     </div>
- </div>
+</div>

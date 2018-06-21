@@ -1,29 +1,122 @@
 {% extends 'concepts_storage_app/base.html' %}
+{% load static %}
 {% block title %}{{ concept.title| truncatewords:3 }}{% endblock %}
 {% block header %}
 {% endblock %}
 {% block content %}
-    <div>
-        <div>
-            <div>
-                <h4>{{ concept.title}}</h4>
+<section class="project-author">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <div class="wrapper-author-01">
+                    <h1 class="Title01 text-left text-uppercase">{{ concept.title}}</h1>
+                    <p class="author-line">
+                        <span>Lorem</span>
+                    </p>
+                    <p class="position"><span>Author</span></p>
+                    <div class="margin-bottom">Preview</div>
+                    <p>Created: {{ concept.created|date:"Y-M-d" }}</p>
+                    <p>Published: {{ concept.pub_date|date:"Y-M-d" }}</p>
+                    <p class="text-right"><a href="{% url 'concepts_storage_app:index' %}" class="buttonPrm">Go Back</a></p>
+                </div>
+                <div class="wrapper-author-02 d-flex">
+                    <div class="col-md-5 col-xs-12">
+                        <div class="row">
+                            <p class="visitors">
+                                <img src="{% static 'concepts_storage_app/img/people.png' %}" alt="">
+                                <span>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</span>
+                            </p>
+                            <p class="times">
+                                <img src="{% static 'concepts_storage_app/img/time.png' %}" alt="">
+                                <span>{{ concept.get_days_left }} days to go</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-xs-12">
+                        <div class="row">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width:{{ concept.funded }}%">
+                                    <span class="title">{{ concept.pledge }}$ / {{ concept.goal }}$</span>
+                                </div>
+                            </div>
+                            <div class="row-wrapper d-flex justify-content-between">
+                                <button onclick="window.location='{% url 'concepts_storage_app:index' %}'"
+                                        type="submit" class="btn btn-primary buttonPrm"><span>Explore</span></button>
+                                <button onclick="window.location='{% url 'concepts_storage_app:add_concept' %}'"
+                                        type="submit" class="btn btn-primary buttonPrm"><span>Start project</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper-author-03">
+                    {% autoescape off %}{{ concept.description}}{% endautoescape %}
+                </div>
             </div>
-            <div>
-                <button onclick="window.location='{% url 'concepts_storage_app:index' %}'">
-                    GO BACK</button>
+            <div class="col-md-4 col-xs-12">
+                <img src="{% static 'concepts_storage_app/img/img.png' %}"  class="width-100" alt="">
+                <div class="sidebar">
+                    <h3 class="text-right text-uppercase">Lorem</h3>
+                    <div class="wrapper-author-04">
+                        <div class="block-wrapper">
+                            <h4 class="text-uppercase">Lorem ipsum</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                        <div class="block-wrapper">
+                            <h4 class="text-uppercase">Lorem ipsum</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                        <div class="block-wrapper">
+                            <h4 class="text-uppercase">Lorem ipsum</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                        <div class="block-wrapper">
+                            <h4 class="text-uppercase">Lorem ipsum</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <p>Created: {{ concept.created|date:"Y-M-d" }}</p>
-        <p>Published: {{ concept.pub_date|date:"Y-M-d" }}</p>
-        <div>{% autoescape off %}{{ concept.description}}{% endautoescape %}</div>
-        <p>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</p>
-        <div>
-            <div style="width:{{ concept.funded }}%;"
-                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-            {{ concept.pledge }}$ / {{ concept.goal }}$
-            </div>
-        </div>
-        <hr>
-        <h4>{{ concept.get_days_left }} days to go</h4>
     </div>
+</section>
+    <!--<div>-->
+        <!--<div>-->
+            <!--<div>-->
+                <!--<h4>{{ concept.title}}</h4>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<button onclick="window.location='{% url 'concepts_storage_app:index' %}'">-->
+                    <!--GO BACK</button>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<p>Created: {{ concept.created|date:"Y-M-d" }}</p>-->
+        <!--<p>Published: {{ concept.pub_date|date:"Y-M-d" }}</p>-->
+        <!--<div>{% autoescape off %}{{ concept.description}}{% endautoescape %}</div>-->
+        <!--<p>{{ concept.backers_counter }} backers funded {{ concept.funded }}% of the project</p>-->
+        <!--<div>-->
+            <!--<div style="width:{{ concept.funded }}%;"-->
+                 <!--aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">-->
+            <!--{{ concept.pledge }}$ / {{ concept.goal }}$-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<h4>{{ concept.get_days_left }} days to go</h4>-->
+    <!--</div>-->
 {% endblock %}
+

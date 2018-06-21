@@ -20,7 +20,7 @@
             <div class="container">
                 <h1 class="MainTitle"><span>Projects</span></h1>
                 <div class="row">
-                {% if concepts_storage %}
+                    {% if concepts_storage %}
                         {% for concept in concepts_storage %}
                             {% include 'concepts_storage_app/_concept_unit.html' %}
                         {% endfor %}
