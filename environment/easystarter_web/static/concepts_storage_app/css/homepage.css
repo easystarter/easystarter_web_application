@@ -376,11 +376,13 @@ body{
     margin-bottom: 15px;
 }
 .title-project{
-    font-size: 30px;
+    font-size: 24px;
     color: #383838;
     font-weight: bold;
     text-transform: uppercase;
-    line-height: 0.8;
+    line-height: 1.2;
+    height: 55px;
+    overflow: hidden;
 }
 .author-line, .category{
     font-size: 16px;
@@ -397,12 +399,14 @@ body{
     font-size: 16px;
     color: rgb(56, 56, 56);
     line-height: 1.2;
-    border-bottom: 1px solid #4949bd;
     padding-bottom: 20px;
-}
-.textProject p{
-    height: 150px;
+    height: 130px;
     overflow: hidden;
+    margin-bottom: 20px;
+}
+.visitors{
+    border-top: 1px solid #4949bd;
+    padding-top: 15px;
 }
 .visitors, .times{
     display: flex;

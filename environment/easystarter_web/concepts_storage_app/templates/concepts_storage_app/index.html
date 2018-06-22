@@ -27,15 +27,15 @@
                                             <h3 class="title-project">{{ concept.title | truncatechars:50 }}</h3>
                                             <p class="author-line">
                                                 <span>Author: Mr. Smith</span>
-                                                <span>Status: {{ concept.status }}</span>
+                                                <!--<span>Status: {{ concept.status }}</span>-->
                                             </p>
                                             <p class="category">
                                                 <span>Category: {{ concept.category }}</span>
                                             </p>
-                                            <p>
-                                                <span>Created: {{ concept.created|date:"Y-M-d" }}</span>
-                                                <span>Published: {{ concept.pub_date|date:"Y-M-d" }}</span>
-                                            </p>
+                                            <!--<p>-->
+                                                <!--<span>Created: {{ concept.created|date:"Y-M-d" }}</span>-->
+                                                <!--<span>Published: {{ concept.pub_date|date:"Y-M-d" }}</span>-->
+                                            <!--</p>-->
                                             <p>
                                                 <img src="{% static 'concepts_storage_app/img/img.png' %}" class="imageMain" alt="Img">
                                             </p>
