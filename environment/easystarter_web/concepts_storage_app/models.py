@@ -64,5 +64,5 @@ class Concept(models.Model):
     days_to_go = models.IntegerField(choices=DAYS_TO_GO, default=30)
 
     def get_days_left(self):
-        days = (datetime.date.today() - self.pub_date.date()).days - datetime.timedelta(days=self.days_to_go).days
+        days = datetime.timedelta(days=self.days_to_go).days-(datetime.date.today() - self.pub_date.date()).days
         return days if days > 0 else 0
