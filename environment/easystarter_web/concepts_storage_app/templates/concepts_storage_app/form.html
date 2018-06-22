@@ -11,66 +11,82 @@
             {% csrf_token %}
             {{ form.media }}
             <fieldset>
-                <div>
-                    <div>
-                        <legend>Create Project</legend>
+                <div id="TemplateForm">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="MainTitle text-center"><span>Create Project</span></h1>
                     </div>
-                    <div>
-                        <button onclick="window.location='{% url 'concepts_storage_app:index' %}'">
-                            GO BACK
-                        </button>
+                        <div class="button-block-form text-center">
+                            <button class="btn btn-primary buttonPrm" onclick="window.location='{% url 'concepts_storage_app:index' %}'">
+                                <span>GO BACK</span>
+                            </button>
+                        </div>
+                <div class="row row01">
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.title.id_for_label }}">Project Name:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <span class="input-style">{{ form.title }}</span>
                     </div>
                 </div>
-                <div>
-                    <div><label for="{{ form.title.id_for_label }}">Project Name:</label><br>{{ form.title }}</div>
                     <div>{{ form.title.errors }}</div>
-                </div>
-                <div>
-                    <div></div>
+                <div class="row row02">
                     {{ form.description.errors }}
-                    <label for="{{ form.description.id_for_label }}">Description: </label><br>{{ form.description }}
-                </div>
-                 <div>
-                     {{ form.category.errors }}
-                      <label for="{{ form.category.id_for_label }}">Category:</label><br>{{ form.category }}
-                </div>
-                <div>
-                    {{ form.pub_date.errors }}
-                    <label for="{{ form.pub_date.id_for_label }}">Date of publication: </label><br>
-                    {{ form.pub_date }}
-                    <script>
-                        $('#datepicker').datepicker({
-                            uiLibrary: 'bootstrap4'
-                        });
-                    </script>
-                </div>
-                <div>
-                    {{ form.goal.errors }}
-                    <label class="{{ form.goal.id_for_label }}">Goal:</label>
-                    <div>
-                    <div>
-                      <div>
-                        <span>$</span>
-                      </div>
-                      {{ form.goal }}
-                      <div>
-                        <span>.00</span>
-                      </div>
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.description.id_for_label }}">Description: </label>
                     </div>
-                  </div>
+                    <div class="col-md-9 col-xs-12">
+                        {{ form.description }}
+                    </div>
                 </div>
-                <div>
-                    <div>
+                 <div class="row row03">
+                     {{ form.category.errors }}
+                     <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.category.id_for_label }}">Category:</label>
+                     </div>
+                     <div class="col-md-9 col-xs-12">
+                         {{ form.category }}
+                     </div>
+                </div>
+               <div class="row row04">
+                    {{ form.pub_date.errors }}
+                   <div class="col-md-3 col-xs-12">
+                    <label for="{{ form.pub_date.id_for_label }}">Date of publication: </label>
+                   </div>
+                   <div class="col-md-9 col-xs-12">
+                        {{ form.pub_date }}
+                        <script>
+                            $('#datepicker').datepicker({
+                                uiLibrary: 'bootstrap4'
+                            });
+                        </script>
+                   </div>
+                </div>
+                <div class="row row05">
+                    {{ form.goal.errors }}
+                     <div class="col-md-3 col-xs-12">
+                        <label class="{{ form.goal.id_for_label }}">Goal:</label>
+                     </div>
+                    <div class="col-md-9 col-xs-12">
+                      <p>
+                        <span>$</span>
+                          <span class="input-style">{{ form.goal }}</span>
+                        <span>.00</span>
+                      </p>
                         <div>
                             {{ form.days_to_go }}
                         </div>
                         <div>
                             <p>{{ form.days_to_go.errors }}</p>
                         </div>
+
                     </div>
                 </div>
-                <hr/>
-                <button type="submit">Start Project</button>
+
+                    <p class="text-center"><button class="btn btn-primary buttonPrm" type="submit"><span>Start Project</span></button></p>
+
+                </div>
+                </div>
             </fieldset>
         </form>
     </div>

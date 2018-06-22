@@ -1,0 +1,31 @@
+#TemplateForm{
+    padding: 100px 0;
+}
+#TemplateForm .container > div{
+    margin-bottom: 30px;
+}
+#TemplateForm h1{
+    width: 100%;
+}
+#TemplateForm label{
+    font-size: 18px;
+    color: #000;
+}
+.button-block-form button{
+    margin: 0 0 50px;
+}
+/********************/
+.input-style input{
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+    font-size: 16xp;
+    padding: 7px 10px;
+}
+.input-style input:focus, #category:focus{
+    border: 1px solid #4949bd;
+}
+@media screen and (max-width:1024px) {
+    .row02 .col-md-9{
+        overflow-x: scroll;
+    }
+}

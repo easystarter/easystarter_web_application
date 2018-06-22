@@ -8,7 +8,7 @@
             <div class="fon-banner"></div>
             <div class="container">
                 <div class="Textwrapper">
-                    <h1 class="Text01">Welcome to EasyStarter!</h1>
+                    <h2 class="Text01">Welcome to EasyStarter!</h2>
                     <p class="Text01">We are the community who helps to implement your ideas in real life</p>
                     <p class="Text01">We create the future together</p>
                     <p class="Text02"><a href="{% url 'concepts_storage_app:about' %}">Click here to learn more</a></p>
@@ -26,7 +26,7 @@
                                         <div class="background-block">
                                             <h3 class="title-project">{{ concept.title | truncatechars:50 }}</h3>
                                             <p class="author-line">
-                                                <span>Author: MISTER X</span>
+                                                <span>Author: Mr. Smith</span>
                                                 <span>Status: {{ concept.status }}</span>
                                             </p>
                                             <p class="category">
@@ -64,13 +64,13 @@
                                 {% endfor %}
                             {% endif %}
                     </div>
-                <div class="col-md-12 col-xs-12">
-                    <div class="background-block addBlock">
-                        <p><img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt=""></p>
-                        <p><img src="{% static 'concepts_storage_app/img/title01.png' %}" alt=""></p>
-                        <p><a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a></p>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="background-block addBlock">
+                            <p><img src="{% static 'concepts_storage_app/img/logo-title.png' %}" alt=""></p>
+                            <p><img src="{% static 'concepts_storage_app/img/title01.png' %}" alt=""></p>
+                            <p class="text-center"><a href="{% url 'concepts_storage_app:add_concept' %}" class="buttonPrm">Start</a></p>
+                        </div>
                     </div>
-                </div>
             </div>
         </section>
 {% endblock %}
