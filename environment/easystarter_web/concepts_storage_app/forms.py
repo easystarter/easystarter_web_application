@@ -36,7 +36,7 @@ class ConceptForm(forms.Form):
 
 
 class MessageForm(forms.Form):
-    name = forms.CharField(required=True, max_length=50, label='Your name',
+    name = forms.CharField(required=True, max_length=50,
                            widget=forms.TextInput(attrs={
                                                     'class': 'form-control col-md-8 col-sm-12 col-xs-12',
                                                     'id': 'Name',

@@ -404,7 +404,7 @@ body{
     overflow: hidden;
     margin-bottom: 20px;
 }
-.visitors{
+#Template01 .visitors{
     border-top: 1px solid #4949bd;
     padding-top: 15px;
 }

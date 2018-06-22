@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, render
 from django.core.mail import send_mail
@@ -28,7 +30,7 @@ def contacts(request):
     return render_to_response('concepts_storage_app/contacts.html', {'form': form})
 
 
-def send_message(request, form):
+def send_message(request):
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
@@ -36,6 +38,14 @@ def send_message(request, form):
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
+        send_mail('Message from ' + name,
+                  message + "\n" + 'Phone: ' + phone + "\n" + "Email: " + email,
+                  settings.EMAIL_HOST_USER,
+                  [form.email])
+        return HttpResponseRedirect('/')
+    else:
+        form = MessageForm()
+    return render(request, 'concepts_storage_app/contacts.html', {'form': form})
 
 
 class ConceptDetailView(generic.DetailView):

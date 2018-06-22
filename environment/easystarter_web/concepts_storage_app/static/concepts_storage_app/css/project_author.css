@@ -62,19 +62,25 @@
     color: #4949BD;
     font-weight: bold;
     width: 100%;
-    border-bottom: 1px solid #4949BD;
+    /*border-bottom: 1px solid #4949BD;*/
     padding-bottom: 15px;
+}
+.block-wrapper{
+    border-top: 1px solid #4949BD;
+    padding-top: 20px;
 }
 .block-wrapper h4{
     font-size: 26px;
     color: #383838;
     line-height: 0.8;
-    margin: 50px 0 40px;
+    margin: 0 0 30px;
 }
 .block-wrapper p{
     font-size: 16px;
     color: #383838;
     line-height: 1.2;
-    padding: 0 0 40px;
-    border-bottom: 1px solid #4949BD;
+    /*border-bottom: 1px solid #4949BD;*/
+}
+.project-author .position{
+    margin: 30px 0;
 }

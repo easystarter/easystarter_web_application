@@ -10,11 +10,10 @@
             <div class="col-md-8 col-xs-12">
                 <div class="wrapper-author-01">
                     <h1 class="Title01 text-left text-uppercase">{{ concept.title}}</h1>
-                    <p class="author-line">
-                        <span>Lorem</span>
-                    </p>
+                    <!--<p class="author-line">-->
+                        <!--<span>Lorem</span>-->
+                    <!--</p>-->
                     <p class="position"><span>Author</span></p>
-                    <div class="margin-bottom">Preview</div>
                     <p>Created: {{ concept.created|date:"Y-M-d" }}</p>
                     <p>Published: {{ concept.pub_date|date:"Y-M-d" }}</p>
                     <p class="text-right"><a href="{% url 'concepts_storage_app:index' %}" class="buttonPrm">Go Back</a></p>
@@ -60,9 +59,7 @@
                         <div class="block-wrapper">
                             <h4 class="text-uppercase">Reward Lev.1</h4>
                             <p>Pledge $10 or more</p>
-                            <br>
                             <p>Get a sticker</p>
-                            <br>
                             <p>Get the sticker with the company logo</p>
                         </div>
                         <div class="block-wrapper">
@@ -74,17 +71,13 @@
                         <div class="block-wrapper">
                             <h4 class="text-uppercase">Reward Lev.3</h4>
                             <p>Pledge $50 or more</p>
-                            <br>
                             <p>Get a bag</p>
-                            <br>
                             <p>Get the bag with the company logo</p>
                         </div>
                         <div class="block-wrapper">
                             <h4 class="text-uppercase">Reward Lev.4</h4>
                             <p>Pledge $75 or more</p>
-                            <br>
                             <p>Get a secret box</p>
-                            <br>
                             <p>Get the special box with a lot of things from the company</p>
                         </div>
                     </div>
