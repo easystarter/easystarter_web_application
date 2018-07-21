@@ -30,9 +30,9 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <h3 class="Title">Contact form</h3>
-                <form class="form-From-Contact" action="{% url 'concepts_storage_app:send_message' %}" method="POST">
+                <form class="form-From-Contact" action="{% url 'concepts_storage_app:contacts' %}" method="POST">
                     {% csrf_token %}
-                    {{ form }}
+                    {{ form.as_p }}
                     <div class="form-group button"><button type="submit" class="btn btn-primary Send">Send</button></div>
                 </form>
             </div>

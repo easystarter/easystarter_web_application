@@ -54,20 +54,20 @@ class MessageForm(forms.Form):
                                'type': 'email'
                            }))
 
-    phone = forms.IntegerField(required=True, label='Phone number',
-                           widget=forms.TextInput(attrs={
-                               'class': 'form-control col-md-8 col-sm-12',
-                               'id': 'Phone',
-                               'aria-invalid': 'false',
-                               'placeholder': '+00000000000',
-                               'type': 'tel',
-                               'size':  '10',
-                               'name': 'tel'
-                           }))
+    phone = forms.CharField(required=True, label='Phone number',
+                            widget=forms.TextInput(attrs={
+                                                    'class': 'form-control col-md-8 col-sm-12',
+                                                    'id': 'Phone',
+                                                    'aria-invalid': 'false',
+                                                    'placeholder': '+00000000000',
+                                                    'type': 'tel',
+                                                    'size':  '10',
+                                                    'name': 'tel'
+                               }))
 
     message = forms.CharField(required=True, max_length=1000,  label='Message',
-                               widget=forms.Textarea(attrs={
+                              widget=forms.Textarea(attrs={
                                    'class': 'form-control col-md-8 col-sm-12',
                                    'id': 'exampleFormControlTextarea1',
                                    'rows': '3'
-                               }))
+                              }))
