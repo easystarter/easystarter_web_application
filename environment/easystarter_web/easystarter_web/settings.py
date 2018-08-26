@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'concepts_storage_app',
     'ckeditor',
     'ckeditor_uploader',
+    'accounts'
 ]
 
 MIDDLEWARE = [

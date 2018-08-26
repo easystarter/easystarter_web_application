@@ -1,0 +1,51 @@
+{% extends 'concepts_storage_app/base.html' %}
+    {% block title %}SignUp{% endblock %}
+    {% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Sign up</legend>
+            <div class="container">
+                <div class="row">
+                    {{ form.username.errors }}
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.username.id_for_label }}">Username:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <span>{{ form.username}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    {{ form.email.errors }}
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.email.id_for_label }}">Email:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <span>{{ form.email}}</span>
+                    </div>
+                </div>
+                 <div class="row">
+                     {{ form.password1.errors }}
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.password1.id_for_label }}">Password:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <span>{{ form.password1}}</span>
+                    </div>
+                </div>
+                 <div class="row">
+                     {{ form.password2.errors }}
+                    <div class="col-md-3 col-xs-12">
+                        <label for="{{ form.password2.id_for_label }}">Repeat Password:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <span>{{ form.password2}}</span>
+                    </div>
+                </div>
+                <div>
+                    <p><button type="submit">Creaate account</button></p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    {% endblock %}
