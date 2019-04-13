@@ -1,4 +1,4 @@
-django>=2.0.11
+django>=2.1.0
 django-ckeditor==5.4.0
 django-js-asset==1.1.0
 gunicorn==19.8.0
